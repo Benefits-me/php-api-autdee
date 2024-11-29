@@ -18,7 +18,7 @@ class AuthService
     public function validateToken(string $token): bool
     {
         $response = Http::withToken($token)
-            ->withHEaders([
+            ->withHeaders([
                 'Accept' => 'application/json',
                 'X-API-Version' => '1.0.0',
             ])

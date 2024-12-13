@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->publishes([
             $this->determineConfigFile() => config_path('api-auth.php'),
-        ]);
+        ], 'api-auth-config');
     }
 
     private function determineConfigFile(): string

@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BenefitsMe\ApiAuth;
+namespace BenefitsMe\ApiAuth\Provider;
 
+use BenefitsMe\ApiAuth\Services\AuthService;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -26,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
     private function determineConfigFile(): string
     {
-        return realpath(__DIR__ . '/..') . '/config/api-auth.php';
+        return realpath(__DIR__ . '/../..') . '/config/api-auth.php';
     }
 
 }

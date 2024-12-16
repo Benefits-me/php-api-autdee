@@ -76,7 +76,10 @@ class AuthService
         string $login,
         string $password,
         int $companyId,
+        int $originId,
         int $regionId,
+        int $registrationPlatformId,
+        int $roleId,
     ): array
     {
         $response = $this->httpClient()
@@ -85,7 +88,10 @@ class AuthService
                 'login_email' => $login,
                 'password' => $password,
                 'company_id' => $companyId,
+                'origin_id' => $originId,
                 'region_id' => $regionId,
+                'registration_platform_id' => $registrationPlatformId,
+                'role_id' => $roleId,
             ]);
 
         if ( ! $response->successful()) {

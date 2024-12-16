@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BenefitsMe\ApiAuth\Services;
 
+use BenefitsMe\ApiAuth\Enums\LoginWith;
 use BenefitsMe\ApiAuth\Exceptions\FailedRequestException;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
@@ -72,7 +73,7 @@ class AuthService
      * @throws ConnectionException
      */
     public function register(
-        string $loginWith,
+        LoginWith $loginWith,
         string $login,
         string $password,
         int $companyId,
@@ -84,7 +85,7 @@ class AuthService
     {
         $response = $this->httpClient()
             ->post($this->url('/register'), [
-                'login_with' => $loginWith,
+                'login_with' => $loginWith->value,
                 'login_email' => $login,
                 'password' => $password,
                 'company_id' => $companyId,
